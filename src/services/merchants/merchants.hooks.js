@@ -1,13 +1,8 @@
-// Application hooks that run for every service
-const hydrate = require('feathers-sequelize/hooks/hydrate');
-function rawFalse(context) {
-  if (!context.params.sequelize) context.params.sequelize = {};
-  Object.assign(context.params.sequelize, { raw: false });
-  return context;
-}
+
+
 module.exports = {
   before: {
-    all: [rawFalse],
+    all: [],
     find: [],
     get: [],
     create: [],
@@ -17,7 +12,7 @@ module.exports = {
   },
 
   after: {
-    all: [hydrate()],
+    all: [],
     find: [],
     get: [],
     create: [],

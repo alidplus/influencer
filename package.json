@@ -26,11 +26,11 @@
   "scripts": {
     "test": "yarn run lint && yarn run mocha",
     "lint": "eslint src/. test/. --config .eslintrc.json --fix",
-    "dev": "nodemon src/",
-    "start": "node src/",
-    "mocha": "mocha test/ --recursive --exit",
-    "makemigration": "makemigration --name",
-    "sequelize": "sequelize"
+    "dev": "cross-env NODE_ENV=development nodemon src/",
+    "start": "cross-env NODE_ENV=production node src/",
+    "seed": "cross-env NODE_ENV=seed nodemon src/",
+    "mocha": "cross-env NODE_ENV=test mocha test/ --recursive --exit",
+    "sequelize": "cross-env DATABASE_URL=mysql://root:@localhost:3306/influencer sequelize"
   },
   "standard": {
     "env": [
@@ -47,6 +47,7 @@
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "feathers-sequelize": "^6.2.0",
+    "feathers-swagger": "^1.2.1",
     "helmet": "^4.3.1",
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.5",
@@ -55,7 +56,9 @@
   },
   "devDependencies": {
     "axios": "^0.21.1",
+    "cross-env": "^7.0.3",
     "eslint": "^7.17.0",
+    "feathers-seeder": "^2.0.0",
     "mocha": "^8.2.1",
     "nodemon": "^2.0.6",
     "sequelize-cli": "^6.2.0"

@@ -9,5 +9,8 @@
       "max": 50
     }
   },
+  "notion": {
+    "NOTION_TOKEN": "secret_lvG0AUpenA5SHYXIwMtrXfOr7jQsTC9vcZR2TlRCvXB"
+  },
   "mysql": "mysql://root:root@localhost:3306/influencer"
 }

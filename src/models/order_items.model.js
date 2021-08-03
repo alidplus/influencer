@@ -17,6 +17,7 @@ module.exports = function (app) {
       }
     }
   });
+  console.log('orderItems', orderItems)
 
   // eslint-disable-next-line no-unused-vars
   orderItems.associate = function (models) {

@@ -16,6 +16,7 @@ const channels = require('./channels');
 
 const sequelize = require('./sequelize');
 const swagger = require('feathers-swagger');
+const swaggerSpecs = require('../swagger');
 
 const app = express(feathers());
 
@@ -39,6 +40,7 @@ app.configure(express.rest());
 
 app.configure(sequelize);
 
+app.configure(swagger(swaggerSpecs(app)));
 
 // Configure other middleware (see `middleware/index.js`)
 app.configure(middleware);

@@ -2,6 +2,7 @@
 const { Orders } = require('./orders.class');
 const createModel = require('../../models/orders.model');
 const hooks = require('./orders.hooks');
+const docs = require('./orders.docs');
 
 module.exports = function (app) {
   const options = {
@@ -10,10 +11,12 @@ module.exports = function (app) {
   };
 
   // Initialize our service with any options it requires
-  app.use('/orders', new Orders(options, app));
+  let service = new Orders(options, app);
+  service.docs = docs;
+  app.use('/orders', service);
 
   // Get our initialized service so that we can register hooks
-  const service = app.service('orders');
+  service = app.service('orders');
 
   service.hooks(hooks);
 };

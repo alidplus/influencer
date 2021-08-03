@@ -20,8 +20,8 @@ module.exports = function (app) {
 
   // eslint-disable-next-line no-unused-vars
   orderItems.associate = function (models) {
-    models.orders.belongsToMany(models.products, { through: models.order_items,  foreignKey: 'order_id' })
-    models.products.belongsToMany(models.orders, { through: models.order_items,  foreignKey: 'product_id' })
+    models.orders.belongsToMany(models.products, { through: models.order_items,  foreignKey: 'order_id' });
+    models.products.belongsToMany(models.orders, { through: models.order_items,  foreignKey: 'product_id' });
   };
 
   return orderItems;

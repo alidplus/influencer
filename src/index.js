@@ -7,11 +7,11 @@ if (process.env.NODE_ENV === 'seed') {
   const seeder = require('feathers-seeder');
   const seederConfig = require('../seeder/config');
   try {
-    app.configure(seeder(seederConfig(app)))
-    app.setup()
-    app.seed()
+    app.configure(seeder(seederConfig(app)));
+    app.setup();
+    app.seed();
   } catch (e) {
-    console.log('seed err', e)
+    console.log('seed err', e);
   }
   // .then(() => {
   //   console.log('seeding has done!');
@@ -22,8 +22,8 @@ if (process.env.NODE_ENV === 'seed') {
 
   const server = app.listen(port);
   process.on('unhandledRejection', (reason, p) => {
-    logger.error('Unhandled Rejection at: Promise ', p, reason)
-    console.log(reason)
+    logger.error('Unhandled Rejection at: Promise ', p, reason);
+    console.log(reason);
   });
 
   server.on('listening', () =>

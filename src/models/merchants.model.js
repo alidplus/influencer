@@ -21,7 +21,7 @@ module.exports = function (app) {
 
   // eslint-disable-next-line no-unused-vars
   merchants.associate = function (models) {
-    models.merchants.hasMany(models.products, { foreignKey: 'merchant_id' })
+    models.merchants.hasMany(models.products, { foreignKey: 'merchant_id' });
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };

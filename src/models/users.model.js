@@ -25,7 +25,7 @@ module.exports = function (app) {
 
   // eslint-disable-next-line no-unused-vars
   users.associate = function (models) {
-    models.users.hasMany(models.orders, { foreignKey: 'user_id' })
+    models.users.hasMany(models.orders, { foreignKey: 'user_id' });
   };
 
   return users;

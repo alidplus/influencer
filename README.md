@@ -8,7 +8,7 @@ This project uses [Feathers](http://feathersjs.com). An open source web framewor
 
 ## Getting Started
 
-Getting up and running is as easy as 1, 2, 3.
+**please run all steps ordinary.**
 
 1. Make sure you have [NodeJS](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
 2. Install your dependencies
@@ -16,13 +16,44 @@ Getting up and running is as easy as 1, 2, 3.
     ```
     cd path/to/influencer
     npm install
+   // or yarn
     ```
+3. configure database string (`mysql` key) from `path/to/influencer/config/default.json`
 
-3. Start your app
+4. Start your app for first time (this is required for building sql schemas before migration or seeding)
 
     ```
-    npm start
+    npm run dev
+   // or yarn dev
+    ```   
+5. run database migrations
+   ```
+    npm run sequelize db:migrate
+   // or yarn sequelize db:migrate
+   ```
+   migration revert is possible anytime:
+   ```
+    npm run sequelize db:migrate:undo
+   // or yarn sequelize db:migrate:undo
+   ```
+
+6. Stop app and run seeder to seed database
+
     ```
+    npm run seed
+   // or yarn seed
+    ```
+   then run production environment with
+    ```
+    npm run start
+   // or yarn start
+    ```
+7. open [localhost:3030](http://localhost:3030/) to see api home page.
+8. open [/docs](http://localhost:3030/docs) to work with swagger play ground.
+
+## cron job
+required cron job is scheduled to `0 7 * * MON` 
+but it is possible to [run it manually](http://localhost:3030/crons/notionPageCron) just for test case
 
 ## Testing
 

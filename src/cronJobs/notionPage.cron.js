@@ -34,7 +34,7 @@ async function notionPageCron () {
     //
     // const response = await notion.pages.create({...})
 
-    return { ok: true, error: null }
+    return { ok: true, error: null, data: orderItemsMaped }
   } catch (e) {
     console.log(e)
     return { ok: false, err: e.message }
